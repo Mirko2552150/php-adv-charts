@@ -8,13 +8,11 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <?php
-
-     ?>
     <div class="container">
-      <canvas id="line-chart"></canvas>
+      <div class="box-line">
+        <canvas id="line-chart"></canvas>
+      </div>
     </div>
-
 
 
     <script src="js/main.js" charset="utf-8"></script>
