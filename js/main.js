@@ -4,7 +4,6 @@ $.ajax({
   success: function(data){
     var fatturatiMensili = data;
     var mesi = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
-
     var ctx = $('#line-chart');
     var chart = new Chart(ctx, {
         type: 'line',
@@ -23,3 +22,20 @@ $.ajax({
     alert('ERRORE');
   }
 })
+
+var dataDue = $('#line-chart-due').data('database');
+console.log(dataDue);
+var mesi = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
+var ctx = $('#line-chart-due');
+var chart = new Chart(ctx, {
+  type: 'line',
+  data: {
+      labels: mesi,
+      datasets: [{
+          label: 'My Second dataset',
+          backgroundColor: 'rgb(255, 99, 132)',
+          borderColor: 'rgb(255, 99, 132)',
+          data: dataDue
+      }]
+  },
+});

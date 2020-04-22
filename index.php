@@ -12,8 +12,12 @@
       <div class="box-line">
         <canvas id="line-chart"></canvas>
       </div>
+      <div class="box-line">
+        <?php include "database.php" ?>
+        <?php echo $data ?>
+        <canvas id="line-chart-due" data-database="<?php echo json_encode($data); ?>"></canvas>
+      </div>
     </div>
-
 
     <script src="js/main.js" charset="utf-8"></script>
   </body>
