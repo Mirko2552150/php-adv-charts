@@ -20,6 +20,17 @@
         <canvas id="line-chart-due" data-database="<?php echo json_encode($data); ?>"></canvas>
       </div>
     </div>
+    <div class="container">
+      <div class="box-line">
+        <canvas id="line-chart-tre"></canvas>
+      </div>
+    </div>
+    <div class="container">
+      <div class="box-line">
+        <canvas id="line-chart-quattro"></canvas>
+      </div>
+    </div>
+
 
     <script src="js/main.js" charset="utf-8"></script>
   </body>
