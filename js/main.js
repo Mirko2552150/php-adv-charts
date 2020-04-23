@@ -1,3 +1,4 @@
+// PRIMO GRAFICO ----------------------------------------
 $.ajax({
   url: 'server.php',
   method: 'GET',
@@ -23,6 +24,7 @@ $.ajax({
   }
 })
 
+// SECONDO GRAFICO ----------------------------------------
 var dataDue = $('#line-chart-due').data('database');
 console.log(dataDue);
 var mesi = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
@@ -39,3 +41,21 @@ var chart = new Chart(ctx, {
       }]
   },
 });
+
+// TERZO GRAFICO ----------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// QUARTO GRAFICO ----------------------------------------

@@ -12,6 +12,8 @@
       <div class="box-line">
         <canvas id="line-chart"></canvas>
       </div>
+    </div>
+    <div class="container">
       <div class="box-line">
         <?php include "database.php" ?>
         <?php echo $data ?>
