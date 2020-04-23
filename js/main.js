@@ -90,7 +90,6 @@ $.ajax({
     }
     // console.log(venditori);
     // console.log(fatturato);
-
     var ctx = $('#line-chart-quattro');
     var chart = new Chart(ctx, {
         type: tipo,
@@ -112,24 +111,23 @@ $.ajax({
 // QUINTO GRAFICO ----------------------------------------
 
 $.ajax({
-  url: 'serverGrafici.php',
+  url: 'serverGraficiPhp.php',
   method: 'GET',
   success: function(data){
-    var fatturatiMensili = data.fatturato.data;
-    var tipo = data.fatturato.type
-    // console.log(data.fatturato.data);
-    // console.log(data.fatturato.type);
+    var dati = data;
+    // console.log(dati);
+    console.log(dati[3]);
     var mesi = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
     var ctx = $('#line-chart-cinque');
     var chart = new Chart(ctx, {
-        type: tipo,
+        type: dati[1],
         data: {
             labels: mesi,
             datasets: [{
                 label: 'My Third dataset',
                 backgroundColor: 'rgb(255, 99, 132)',
                 borderColor: 'rgb(255, 99, 132)',
-                data: fatturatiMensili
+                data: dati[0]
             }]
         },
     });
@@ -142,31 +140,21 @@ $.ajax({
 // SESTO GRAFICO ----------------------------------------
 
 $.ajax({
-  url: 'serverGrafici.php',
+  url: 'serverGraficiPhp.php',
   method: 'GET',
   success: function(data){
-    // console.log(data.fatturato_by_agent.data);
-    var tipo = data.fatturato_by_agent.type;
-    var fatturati = data.fatturato_by_agent.data;
-    var venditori = [];
-    var fatturato = [];
-    for (var key in fatturati) {
-      fatturato.push(fatturati[key]);
-      venditori.push(key);
-    }
-    // console.log(venditori);
-    // console.log(fatturato);
-
+    var dati = data;
+    // console.log(dati);
     var ctx = $('#line-chart-sei');
     var chart = new Chart(ctx, {
-        type: tipo,
+        type: dati[2],
         data: {
-            labels: venditori,
+            labels: dati[3],
             datasets: [{
                 label: 'Qualità Venditori',
                 backgroundColor: ['pink', 'red', 'blue', 'green'],
                 borderColor: 'white',
-                data: fatturato
+                data: dati[4]
             }]
         },
     });

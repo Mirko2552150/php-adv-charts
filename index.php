@@ -40,8 +40,7 @@
         <canvas id="line-chart-sei"></canvas>
       </div>
     </div>
-
-
+    
     <script src="js/main.js" charset="utf-8"></script>
   </body>
 </html>
