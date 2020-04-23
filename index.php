@@ -30,6 +30,16 @@
         <canvas id="line-chart-quattro"></canvas>
       </div>
     </div>
+    <div class="container">
+      <div class="box-line">
+        <canvas id="line-chart-cinque"></canvas>
+      </div>
+    </div>
+    <div class="container">
+      <div class="box-line">
+        <canvas id="line-chart-sei"></canvas>
+      </div>
+    </div>
 
 
     <script src="js/main.js" charset="utf-8"></script>
