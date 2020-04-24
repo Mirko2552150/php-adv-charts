@@ -3,7 +3,7 @@
   include 'dataLevel.php'; // includo file dove abbiamo un ns database
   header('Content-Type: application/json'); // ci permette di visualizzare meglio il contenuto JSON
 
-  // GRAFICO UNO
+  // GRAFICO UNO LEVEL
   $tipo_line = $graphs[fatturato]['type'];
 
   $fatturati = [];
@@ -15,7 +15,7 @@
     }
   }
 
-  // GRAFICO DUE
+  // GRAFICO DUE LEVEL
   $tipo_pie = $graphs[fatturato_by_agent]['type'];
 
   $venditori = [];
@@ -27,10 +27,11 @@
     }
   }
 
+  // GRAFICO TRE LEVEL
   $tipo_multiline = $graphs[team_efficiency]['type'];
 
   $team = [];
-  $fatturati_venditoriEff = [];
+  $fatturati_team = [];
   foreach ($graphs[team_efficiency] as $key => $value) {
     foreach ($value as $key2 => $value2) {
       $team[] = $key2;

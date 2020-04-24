@@ -3,7 +3,7 @@
       'fatturato' => [
       'type' => 'line',
       'data' => [1000,1322,1123,2301,3288,988,502,2300,5332,2300,1233,2322],
-      'access' => 'guest'
+      'access' => 'guest, employee, clevel'
       ],
       'fatturato_by_agent' => [
       'type' => 'pie',
@@ -13,7 +13,7 @@
         'Mattia' => 3200,
         'Alberto' => 2300
         ],
-      'access' => 'employee'
+      'access' => 'employee, clevel'
       ],
       'team_efficiency' => [
       'type' => 'line',

@@ -54,7 +54,7 @@ $.ajax({
   url: 'serverGrafici.php',
   method: 'GET',
   success: function(data){
-    getGraficoTre(data)
+    getGraficoTre(data);
   },
   error: function(){
     alert('ERRORE');
@@ -89,7 +89,7 @@ $.ajax({
   method: 'GET',
   success: function(data){
     // console.log(data.fatturato_by_agent.data);
-    getGraficoQuatttro(data)
+    getGraficoQuatttro(data);
   },
   error: function(){
     alert('ERRORE');
@@ -127,7 +127,7 @@ $.ajax({
   url: 'serverGraficiPhp.php',
   method: 'GET',
   success: function(data){
-    getGraficoCinque(data)
+    getGraficoCinque(data);
   },
   error: function(){
     alert('ERRORE');
@@ -159,7 +159,7 @@ $.ajax({
   url: 'serverGraficiPhp.php',
   method: 'GET',
   success: function(data){
-    getGraficoSei(data)
+    getGraficoSei(data);
   },
   error: function(){
     alert('ERRORE');
@@ -191,15 +191,17 @@ $.ajax({
   method: 'GET',
   success: function(data){
     console.log(data);
-
      $('.button').click(function(){
        var livello = $('.selettore').val();
        console.log(livello);
        if (livello == 'guest') {
-         getGraficoSette(data);
+        getGraficoSette(data);
+        $('.due').append('<h1 style="text-align: center;">NON HAI IL PERMESSO</h1>');
+        $('.tre').append('<h1 style="text-align: center;">NON HAI IL PERMESSO</h1>');
        } else if (livello == 'employee') {
         getGraficoSette(data);
         getGraficoOtto(data);
+        $('.tre').append('<h1 style="text-align: center;">NON HAI IL PERMESSO</h1>');
        } else if (livello == 'clevel') {
         getGraficoSette(data);
         getGraficoOtto(data);

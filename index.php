@@ -41,26 +41,27 @@
       </div>
     </div>
     <div class="container">
-      <div class="box-line">
+      <div class="box-line uno">
         <select class="selettore">
+          <option value="none">Inserisci Livello</option>
           <option value="guest">guest</option>
           <option value="employee">employee</option>
           <option value="clevel">clevel</option>
         </select>
-        <button class="button" type="button" name="button"></button>
-        <h4>PREMESSO UNO</h4>
+        <button class="button" type="button" name="button">CERCA</button>
+        <h4>PERMESSO UNO</h4>
         <canvas id="line-chart-sette"></canvas>
       </div>
     </div>
     <div class="container">
-      <div class="box-line">
-        <h4>PREMESSO DUE</h4>
+      <div class="box-line due">
+        <h4>PERMESSO DUE</h4>
         <canvas id="line-chart-otto"></canvas>
       </div>
     </div>
     <div class="container">
-      <div class="box-line">
-        <h4>PREMESSO TRE</h4>
+      <div class="box-line tre">
+        <h4>PERMESSO TRE</h4>
         <canvas id="line-chart-nove"></canvas>
       </div>
     </div>
