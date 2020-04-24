@@ -40,5 +40,4 @@
   }
 
   echo json_encode(array($fatturati,$tipo_line, $tipo_pie, $venditori, $fatturati_venditori, $tipo_multiline, $team, $fatturati_team));
-
 ?>
