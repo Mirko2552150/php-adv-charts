@@ -1,8 +1,9 @@
 <?php
 
-  include 'data.php';
-  header('Content-Type: application/json'); // ci permette di visualizzare meglio il conntenuto JSON
+  include 'dataLevel.php'; // includo file dove abbiamo un ns database
+  header('Content-Type: application/json'); // ci permette di visualizzare meglio il contenuto JSON
 
+  // GRAFICO UNO
   $tipo_line = $graphs[fatturato]['type'];
 
   $fatturati = [];
@@ -14,6 +15,7 @@
     }
   }
 
+  // GRAFICO DUE
   $tipo_pie = $graphs[fatturato_by_agent]['type'];
 
   $venditori = [];
@@ -25,16 +27,17 @@
     }
   }
 
-  $tipo_line2 = $graphs[fatturato_by_agent]['type'];
+  $tipo_multiline = $graphs[team_efficiency]['type'];
 
-  $venditori = [];
-  $fatturati_venditori = [];
-  foreach ($graphs[fatturato_by_agent] as $key => $value) {
+  $team = [];
+  $fatturati_venditoriEff = [];
+  foreach ($graphs[team_efficiency] as $key => $value) {
     foreach ($value as $key2 => $value2) {
-      $venditori[] = $key2;
-      $fatturati_venditori[] = $value2;
+      $team[] = $key2;
+      $fatturati_team[] = $value2;
     }
   }
 
-  echo json_encode(array($fatturati,$tipo_line, $tipo_pie, $venditori, $fatturati_venditori));
- ?>
+  echo json_encode(array($fatturati,$tipo_line, $tipo_pie, $venditori, $fatturati_venditori, $tipo_multiline, $team, $fatturati_team));
+
+?>

@@ -40,7 +40,31 @@
         <canvas id="line-chart-sei"></canvas>
       </div>
     </div>
-    
+    <div class="container">
+      <div class="box-line">
+        <select class="selettore">
+          <option value="guest">guest</option>
+          <option value="employee">employee</option>
+          <option value="clevel">clevel</option>
+        </select>
+        <button class="button" type="button" name="button"></button>
+        <h4>PREMESSO UNO</h4>
+        <canvas id="line-chart-sette"></canvas>
+      </div>
+    </div>
+    <div class="container">
+      <div class="box-line">
+        <h4>PREMESSO DUE</h4>
+        <canvas id="line-chart-otto"></canvas>
+      </div>
+    </div>
+    <div class="container">
+      <div class="box-line">
+        <h4>PREMESSO TRE</h4>
+        <canvas id="line-chart-nove"></canvas>
+      </div>
+    </div>
+
     <script src="js/main.js" charset="utf-8"></script>
   </body>
 </html>

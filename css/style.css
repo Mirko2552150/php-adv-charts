@@ -14,5 +14,15 @@
 .box-line {
   width: 30vw;
   border: 1px solid black;
-  
+
+}
+
+h4 {
+  text-align: center;
+}
+
+button {
+  height: 50px;
+  background-color: red;
+  width: 50px;
 }

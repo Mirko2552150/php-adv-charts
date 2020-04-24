@@ -4,26 +4,31 @@ $.ajax({
   url: 'server.php',
   method: 'GET',
   success: function(data){
-    var fatturatiMensili = data;
-    var mesi = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
-    var ctx = $('#line-chart');
-    var chart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: mesi,
-            datasets: [{
-                label: 'My First dataset',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
-                data: fatturatiMensili
-            }]
-        },
-    });
+    // console.log(data);
+    getGraficoUno(data);
   },
   error: function(){
     alert('ERRORE');
   }
 })
+
+function getGraficoUno(dat) {
+  var fatturatiMensili = dat;
+  var mesi = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
+  var ctx = $('#line-chart');
+  var chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+          labels: mesi,
+          datasets: [{
+              label: 'My First dataset',
+              backgroundColor: 'rgb(255, 99, 132)',
+              borderColor: 'rgb(255, 99, 132)',
+              data: fatturatiMensili
+          }]
+      },
+  });
+}
 
 // SECONDO GRAFICO ----------------------------------------
 
@@ -49,29 +54,33 @@ $.ajax({
   url: 'serverGrafici.php',
   method: 'GET',
   success: function(data){
-    var fatturatiMensili = data.fatturato.data;
-    var tipo = data.fatturato.type
-    // console.log(data.fatturato.data);
-    // console.log(data.fatturato.type);
-    var mesi = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
-    var ctx = $('#line-chart-tre');
-    var chart = new Chart(ctx, {
-        type: tipo,
-        data: {
-            labels: mesi,
-            datasets: [{
-                label: 'My Third dataset',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
-                data: fatturatiMensili
-            }]
-        },
-    });
+    getGraficoTre(data)
   },
   error: function(){
     alert('ERRORE');
   }
 })
+
+function getGraficoTre(dat) {
+  var fatturatiMensili = dat.fatturato.data;
+  var tipo = dat.fatturato.type
+  // console.log(data.fatturato.data);
+  // console.log(data.fatturato.type);
+  var mesi = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
+  var ctx = $('#line-chart-tre');
+  var chart = new Chart(ctx, {
+      type: tipo,
+      data: {
+          labels: mesi,
+          datasets: [{
+              label: 'My Third dataset',
+              backgroundColor: 'rgb(255, 99, 132)',
+              borderColor: 'rgb(255, 99, 132)',
+              data: fatturatiMensili
+          }]
+      },
+  });
+}
 
 // QUARTO GRAFICO ----------------------------------------
 
@@ -80,62 +89,69 @@ $.ajax({
   method: 'GET',
   success: function(data){
     // console.log(data.fatturato_by_agent.data);
-    var tipo = data.fatturato_by_agent.type;
-    var fatturati = data.fatturato_by_agent.data;
-    var venditori = [];
-    var fatturato = [];
-    for (var key in fatturati) {
-      fatturato.push(fatturati[key]);
-      venditori.push(key);
-    }
-    // console.log(venditori);
-    // console.log(fatturato);
-    var ctx = $('#line-chart-quattro');
-    var chart = new Chart(ctx, {
-        type: tipo,
-        data: {
-            labels: venditori,
-            datasets: [{
-                label: 'Qualità Venditori',
-                backgroundColor: ['pink', 'red', 'blue', 'green'],
-                borderColor: 'white',
-                data: fatturato
-            }]
-        },
-    });
+    getGraficoQuatttro(data)
   },
   error: function(){
     alert('ERRORE');
   }
 })
+
+function getGraficoQuatttro(dat) {
+  var tipo = dat.fatturato_by_agent.type;
+  var fatturati = dat.fatturato_by_agent.data;
+  var venditori = [];
+  var fatturato = [];
+  for (var key in fatturati) {
+    fatturato.push(fatturati[key]);
+    venditori.push(key);
+  }
+  // console.log(venditori);
+  // console.log(fatturato);
+  var ctx = $('#line-chart-quattro');
+  var chart = new Chart(ctx, {
+      type: tipo,
+      data: {
+          labels: venditori,
+          datasets: [{
+              label: 'Qualità Venditori',
+              backgroundColor: ['pink', 'red', 'blue', 'green'],
+              borderColor: 'white',
+              data: fatturato
+          }]
+      },
+  });
+}
 // QUINTO GRAFICO ----------------------------------------
 
 $.ajax({
   url: 'serverGraficiPhp.php',
   method: 'GET',
   success: function(data){
-    var dati = data;
-    // console.log(dati);
-    console.log(dati[3]);
-    var mesi = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
-    var ctx = $('#line-chart-cinque');
-    var chart = new Chart(ctx, {
-        type: dati[1],
-        data: {
-            labels: mesi,
-            datasets: [{
-                label: 'My Third dataset',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
-                data: dati[0]
-            }]
-        },
-    });
+    getGraficoCinque(data)
   },
   error: function(){
     alert('ERRORE');
   }
 })
+
+function getGraficoCinque(dat) {
+  var dati = dat;
+  // console.log(dati);
+  var mesi = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
+  var ctx = $('#line-chart-cinque');
+  var chart = new Chart(ctx, {
+      type: dati[1],
+      data: {
+          labels: mesi,
+          datasets: [{
+              label: 'My Third dataset',
+              backgroundColor: 'rgb(255, 99, 132)',
+              borderColor: 'rgb(255, 99, 132)',
+              data: dati[0]
+          }]
+      },
+  });
+}
 
 // SESTO GRAFICO ----------------------------------------
 
@@ -143,23 +159,120 @@ $.ajax({
   url: 'serverGraficiPhp.php',
   method: 'GET',
   success: function(data){
-    var dati = data;
-    // console.log(dati);
-    var ctx = $('#line-chart-sei');
-    var chart = new Chart(ctx, {
-        type: dati[2],
-        data: {
-            labels: dati[3],
-            datasets: [{
-                label: 'Qualità Venditori',
-                backgroundColor: ['pink', 'red', 'blue', 'green'],
-                borderColor: 'white',
-                data: dati[4]
-            }]
-        },
-    });
+    getGraficoSei(data)
   },
   error: function(){
     alert('ERRORE');
   }
 })
+
+function getGraficoSei(dat) {
+  var dati = dat;
+  // console.log(dati);
+  var ctx = $('#line-chart-sei');
+  var chart = new Chart(ctx, {
+      type: dati[2],
+      data: {
+          labels: dati[3],
+          datasets: [{
+              label: 'Qualità Venditori',
+              backgroundColor: ['pink', 'red', 'blue', 'green'],
+              borderColor: 'white',
+              data: dati[4]
+          }]
+      },
+  });
+}
+
+// SETTE GRAFICO ----------------------------------------
+
+$.ajax({
+  url: 'serverLevel.php',
+  method: 'GET',
+  success: function(data){
+    console.log(data);
+
+     $('.button').click(function(){
+       var livello = $('.selettore').val();
+       console.log(livello);
+       if (livello == 'guest') {
+         getGraficoSette(data);
+       } else if (livello == 'employee') {
+        getGraficoSette(data);
+        getGraficoOtto(data);
+       } else if (livello == 'clevel') {
+        getGraficoSette(data);
+        getGraficoOtto(data);
+        getGraficoNove(data);
+     }
+     });
+  },
+  error: function(){
+    alert('ERRORE');
+  }
+})
+
+function getGraficoSette(dat) {
+  var dati = dat;
+  // console.log(dati);
+  var mesi = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
+  var ctx = $('#line-chart-sette');
+  var chart = new Chart(ctx, {
+      type: dati[1],
+      data: {
+          labels: mesi,
+          datasets: [{
+              label: 'My Third dataset',
+              backgroundColor: 'rgb(255, 99, 132)',
+              borderColor: 'rgb(255, 99, 132)',
+              data: dati[0]
+          }]
+      },
+  });
+}
+
+function getGraficoOtto(dat) {
+  var dati = dat;
+  // console.log(dati);
+  var ctx = $('#line-chart-otto');
+  var chart = new Chart(ctx, {
+      type: dati[2],
+      data: {
+          labels: dati[3],
+          datasets: [{
+              label: 'Qualità Venditori',
+              backgroundColor: ['pink', 'red', 'blue', 'green'],
+              borderColor: 'white',
+              data: dati[4]
+          }]
+      },
+  });
+}
+
+function getGraficoNove(dat) {
+  var dati = dat;
+  // console.log(dati);
+  console.log(dati[7]);
+  var ctx = $('#line-chart-nove');
+  var chart = new Chart(ctx, {
+      type: dati[5],
+        data: {
+            labels: mesi,
+            datasets: [{
+                label: dati[6][0],
+                borderColor: '#B61827',
+                data: dati[7][0]
+            },
+            {
+                label: dati[6][1],
+                borderColor: '#0288D1',
+                data: dati[7][1]
+            },
+            {
+                label: dati[6][2],
+                borderColor: '#43A047',
+                data: dati[7][2]
+            }],
+        },
+  });
+}
