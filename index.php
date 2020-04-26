@@ -43,7 +43,6 @@
     <div class="container">
       <div class="box-line uno">
         <select class="selettore">
-          <option value="none">Inserisci Livello</option>
           <option value="guest">guest</option>
           <option value="employee">employee</option>
           <option value="clevel">clevel</option>

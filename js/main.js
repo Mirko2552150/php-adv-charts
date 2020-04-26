@@ -159,6 +159,7 @@ $.ajax({
   url: 'serverGraficiPhp.php',
   method: 'GET',
   success: function(data){
+
     getGraficoSei(data);
   },
   error: function(){
@@ -186,27 +187,22 @@ function getGraficoSei(dat) {
 
 // SETTE GRAFICO ----------------------------------------
 
+var input = $('.selettore').val();
 $.ajax({
   url: 'serverLevel.php',
   method: 'GET',
+  data: {
+      query: input,
+  },
   success: function(data){
     console.log(data);
      $('.button').click(function(){
-       var livello = $('.selettore').val();
-       console.log(livello);
-       if (livello == 'guest') {
-        getGraficoSette(data);
-        $('.due').append('<h1 style="text-align: center;">NON HAI IL PERMESSO</h1>');
-        $('.tre').append('<h1 style="text-align: center;">NON HAI IL PERMESSO</h1>');
-       } else if (livello == 'employee') {
-        getGraficoSette(data);
-        getGraficoOtto(data);
-        $('.tre').append('<h1 style="text-align: center;">NON HAI IL PERMESSO</h1>');
-       } else if (livello == 'clevel') {
-        getGraficoSette(data);
-        getGraficoOtto(data);
-        getGraficoNove(data);
-     }
+       // var livello = $('.selettore').val();
+       // console.log(livello);
+       getGraficoSette(data);
+       getGraficoOtto(data);
+       getGraficoNove(data);
+
      });
   },
   error: function(){
